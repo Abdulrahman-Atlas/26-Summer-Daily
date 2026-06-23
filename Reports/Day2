@@ -1,0 +1,39 @@
+Date: 23/06/2026
+
+Day Number: Day 2 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Created a clear 30 day roadmap to achieve the 3d puzzle game.
+
+    - Set up the initial Git repository to track internship progress.
+
+    - Researched fundamental javascript syntax, scaffolding code using basic HTML/CSS.
+
+    - Explored dynamic user input handling alongside data type conversions to manage variables cleanly.
+
+    - Built a functional Counter program to practice state mutation, using strict equality logic to handle condition checks.
+
+    - Implemented conditional properties to validate interface elements and updated basic title attributes.
+
+    - Developed a dynamic mathematical mini-app to handle practical data processing.
+
+    - Shifted into data storage concepts, implementing array structures.
+
+    - Expanded into visual graphics logic, implementing basic 2D animation tracking and runtime rendering concepts.
+
+    - Installed a lightweight linux distribution on the flashdrive but wasn't reliable
+
+    - Ordered sata-USB3.0 converter to install a portable linux system on an ssd 
+
+Next to-do:
+
+    - Finish the linux set-up on the ssd
+
+    - Animating and controlling an actual player sprite character in 2D.
+
+    - Continue important javascript lessons.
+
+// some of the points above was ai generated using the github commits messages written on that day.
