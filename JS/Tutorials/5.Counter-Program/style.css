@@ -1,0 +1,20 @@
+#count {
+    display: block;
+    font-size: 10em;
+    text-align: center;
+}
+
+#increase, #decrease, #reset, #rand {
+    
+    padding: 10px 20px;
+    font-size: 1.5em;
+    color: white;
+    background-color: blueviolet;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+#buttons {
+    text-align: center;
+}
