@@ -16,5 +16,8 @@ let x = null;
 console.log(`The value of x is ${x}.`);
 console.log(typeof x);
 
+document.getElementById("p1").textContent = `My Name is ${name}.`;
 
+document.getElementById("p2").textContent = `My age is ${age}.`;
 
+document.getElementById("p3").textContent = `Am I online? ${online}.`;
