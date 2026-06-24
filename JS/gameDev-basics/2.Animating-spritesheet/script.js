@@ -16,6 +16,7 @@ let staggeredFrames = 7;
 let frameX = 0;
 let imageWidth = 6900 / 12;
 let imageHeight = 5230 / 10;
+
 function animate(){
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 //  the Horizontal image position index 0-6 (changes every 'staggeredFrames' frames)
