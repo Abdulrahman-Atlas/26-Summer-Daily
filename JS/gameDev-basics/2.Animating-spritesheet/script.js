@@ -25,7 +25,7 @@ function animate(){
     frameX = position * imageWidth;
 
 //  ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh); s=source, d=destination
-    ctx.drawImage(playerImage, frameX, 0 * imageHeight, imageWidth, imageHeight, 
+    ctx.drawImage(playerImage, frameX, 2 * imageHeight, imageWidth, imageHeight, 
                              0, 0, imageWidth, imageHeight);
 
 // // slow down animation by "staggerFrames" times
