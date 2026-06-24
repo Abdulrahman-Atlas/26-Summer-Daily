@@ -1,0 +1,28 @@
+Date: 24/06/2026
+
+Day Number: Day 3 of 30
+
+Department: Software/ game Development
+
+
+Work Done:
+
+    - System Installation & Environment Setup: * Completed the installation of the Ubuntu operating system.
+
+    - Configured the full internal development environment of the fresh operating system.
+
+    Core Feature Implementations & JavaScript Concepts:
+
+    - Developed a "Classic DVD idle screen" animation script.
+
+    - Worked on building an animated sprite module (currently in-progress).
+
+    - Implementing the Spread operator (...) and Rest parameters to handle dynamic data arguments efficiently.
+
+    - Successfully built and finalized a fully functional graphical dice roller mini-project.
+
+Next To-Do:
+
+    - Resume and finish the incomplete Animation sprite implementation.
+
+    - practice callback logic and handling Asynchronous operations
