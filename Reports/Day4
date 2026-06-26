@@ -1,0 +1,25 @@
+Date: 25/06/2026
+
+Day Number: Day 4 of 30
+
+Department: Software/ game Development
+
+Work Done:
+
+    - Practiced using callback functions in JavaScript.
+
+    - Learned and used array methods like forEach(), map(), filter(), and reduce() to work with array data.
+
+    - Learned how to write function expressions and use fat arrow (=>) syntax.
+
+    - Worked with Objects, Constructors, and Classes to structure code (Javascript OOP).
+
+    - Finished creating an interactive animation spritesheet.
+
+    - Added a dropdown menu to the UI so the user can select and change the active animation state.
+
+Next to-do:
+
+    - Parrallax in javascript
+    - Collision detection 
+    - Moving character with keyboard and mouse input 
