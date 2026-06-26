@@ -103,6 +103,9 @@ function animate(){
 //     }
 
     gameFrame++;
+    // requestAnimationFrame tells the browser: "Hey, the next time 
+    // you are ready to repaint the screen, run this piece of code 
+    // so I can update my animation."
     requestAnimationFrame(animate);
 };
 animate();
