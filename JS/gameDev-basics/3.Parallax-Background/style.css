@@ -2,13 +2,27 @@ body{
     background: black;
 }
 
-#canvas1 {
+#container{
     position: absolute;
     width: 800px;
-    height: 700px;
-    border: 2px solid blue;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
+    border: 3px solid blue;
+}
+
+p{
+    color: white;
+    font-size: 1.5em;
+}
+
+#slider{
+    width: 100%;
+}
+
+#canvas1 {
+    position: relative;
+    width: 800px;
+    height: 700px;
 }
 

@@ -2,8 +2,14 @@ const canvas = document.getElementById("canvas1");
 ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width = 800;
 const CANVAS_HEIGHT = canvas.height = 700;
-let gameSpeed = 10;
+let gameSpeed = 5;
 // let gameFrame = 0;
+
+
+
+addEventListener('change', function(){
+
+})
 
 const layer1 = new Image();
 layer1.src = 'backgroundLayers/1.png';
@@ -16,7 +22,18 @@ layer4.src = 'backgroundLayers/4.png';
 const layer5 = new Image();
 layer5.src = 'backgroundLayers/5.png';
 
-class Layer{
+const slider = document.getElementById("slider");
+slider.value = gameSpeed;
+let showGameSpeed = document.getElementById("gameSpeed");
+showGameSpeed.textContent = gameSpeed;
+
+slider.addEventListener('change', function(){
+    gameSpeed = slider.value;
+    showGameSpeed.textContent = gameSpeed;
+})
+
+addEventListener('load', function(){
+    class Layer{
     constructor(image, speedModifier){
         this.x = 0;
         this.y = 0;
@@ -63,3 +80,5 @@ function animate(){
     requestAnimationFrame(animate);
 }
 animate();
+})
+
