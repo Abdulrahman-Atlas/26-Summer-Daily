@@ -1,6 +1,3 @@
-console.log("Sattof is GAY!");
-console.log("Cane Cegreme krdstani!");
-
 // window.alert("ALERT!");
 // window.alert("ALERT2!");
 // COMMENT
