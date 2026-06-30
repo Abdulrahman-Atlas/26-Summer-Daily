@@ -9,7 +9,7 @@ const CANVAS_WIDTH = canvas.width = 500;
 const CANVAS_HEIGHT = canvas.height = 1000;
 // range 0-10
 const animationSpeed = 1;
-let enemyCount = 5;
+let enemyCount = 10;
 
 // enemies
 let enemies = [];
@@ -21,7 +21,7 @@ class Enemy{
         this.width = 100;
         this.height = 100;
         this.speed = Math.random() * 1 + 1;
-        this.angle = 0;
+        this.angle = Math.random() * 90;
         this.currentFrame = 0;
         this.staggeredFrames = 3;
         this.image = new Image();
@@ -29,12 +29,13 @@ class Enemy{
         this.iCount = iCount;
         this.frameWidth = iWidth / iCount;
         this.frameHeight = iHeight;
+        this.jumpHeight = Math.random() * 200 + 100;
     }
     update(){
         this.x -= this.speed;
         if(this.x < -this.width) this.x = CANVAS_WIDTH;
         // if(this.y < CANVAS_HEIGHT - this.frameHeight/1.5) this.y += this.speed;
-        this.y = Math.sin(this.angle) * 100 + (CANVAS_HEIGHT - 100 - this.height);
+        this.y = Math.sin(this.angle) * this.jumpHeight + (CANVAS_HEIGHT - this.jumpHeight - this.height);
         this.angle += 0.05;
         this.currentFrame = (Math.floor(gameFrame * animationSpeed / this.staggeredFrames) % this.iCount) * this.frameWidth;
     }
