@@ -1,0 +1,15 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+#canvas1{
+    width: 500px;
+    height: 1000px;
+    align-self: center;
+    border: 3px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
