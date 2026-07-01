@@ -1,0 +1,22 @@
+Date: 26/06/2026
+
+Day Number: Day 5 of 30
+
+Department: Software/ game Development
+
+Work Done:
+
+    - Learned and implemented the parallax background effect
+
+    - Worked with html canvas to setup the game window
+
+    - Styled and sat the resolution of the canvas in css
+
+    - Dynamically animated each layer of the background in javascript
+
+    - Used various javascript animating techniques to achive the parallax effect
+
+Next to-do:
+
+    - Implement game NPC movement and animation
+
