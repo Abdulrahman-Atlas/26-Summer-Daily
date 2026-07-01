@@ -56,7 +56,7 @@ addEventListener('load', function(){
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
         ctx.drawImage(this.image, this.x + this.width, this.y, this.width, this.height);
     }
-}
+    }
 
 const l1 = new Layer(layer1, 0.2);
 const l2 = new Layer(layer2, 0.2);
