@@ -1,0 +1,21 @@
+Date: 29/06/2026
+
+Day Number: Day 6 of 30
+
+Department: Software/ game Development
+
+Work Done:
+
+    - Learned and implemented NPC animation.
+
+    - Practiced canvas building and styling in html and css.
+
+    - Worked with canvas.getContext('2d') method to draw 2d images on canvas.
+
+    - Revisited classes in javascript to create creature blueprints and add variable amount of creatures.
+
+    - Used various javascript animating and random movement techniques for the creatures.
+
+Next to-do:
+
+    - Make my own 2d game with what I learned
