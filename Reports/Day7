@@ -1,0 +1,29 @@
+Date: 30/06/2026
+
+Day Number: Day 7 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Planned to build a flappy-bird copy named flappy-owl
+
+    - Drew the necessary game assests using AI and edited them to fit the game.
+
+    - Started by animating the background to give the game depth effect.
+
+    - Added the pipe obstacles that regenerates after it gets passed by the player.
+
+    - Added the player object with the wing animation.
+
+    - Added event listener for the keyboard input for the jumps.
+
+    - Made the game run faster as time passes to increase difficulty.
+
+Next to-do:
+
+    - Learn and implement hitboxes to detect collision interactions.
+
+    - Add a score and highScore system to the game.
+
+    - Improve the dynamic speed change of the game.
