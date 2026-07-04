@@ -1,16 +1,18 @@
+// this lets VScode suggest canvas methods while coding
+/** @type {HTMLCanvasElement} */
+
 const canvas = document.getElementById("canvas1");
 ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width = 700;
 const CANVAS_HEIGHT = canvas.height = 900;
-let gameSpeed = 3;
-let animationSpeed = 2;
+let gameSpeed = 4;
+let playerAnimationSpeed = 2;
 let gameFrame = 0;
+let score = 0;
+let isGameOver = false;
+// Saving
+localStorage.setItem("highScore", score);
 
-
-
-addEventListener('change', function () {
-
-})
 
 const layer1 = new Image();
 layer1.src = 'backgroundLayers/1.png';
@@ -23,17 +25,8 @@ layer4.src = 'backgroundLayers/4.png';
 const layer5 = new Image();
 layer5.src = 'backgroundLayers/5.png';
 
-// const slider = document.getElementById("slider");
-// slider.value = gameSpeed;
-// let showGameSpeed = document.getElementById("gameSpeed");
-// showGameSpeed.textContent = gameSpeed;
-
-// slider.addEventListener('change', function () {
-//     gameSpeed = slider.value;
-//     showGameSpeed.textContent = gameSpeed;
-// })
-
 addEventListener('load', function () {
+//                                        Background LOGIC
     class Layer {
         constructor(image, speedModifier) {
             this.x = 0;
@@ -67,6 +60,7 @@ addEventListener('load', function () {
 
     const layers = [l1, l2, l3, l4, l5];
 
+//                                     OBSTACLE LOGIC
     class Pipe {
         constructor(start, gap) {
             this.width = 100;
@@ -87,36 +81,50 @@ addEventListener('load', function () {
                 this.x = CANVAS_WIDTH;
                 this.y1 = Math.random() * 350 + 250;
                 this.y2 = this.y1 - this.gap - this.height;
-}
+            }
             else this.x -= gameSpeed;
         }
-        draw(){
+        draw() {
             ctx.drawImage(this.image1, this.x, this.y1, this.width, this.height);
             ctx.drawImage(this.image2, this.x, this.y2, this.width, this.height);
+            // ctx.strokeStyle = "white";
+            // ctx.strokeRect(this.x, this.y1, this.width, this.height);
+            // ctx.strokeRect(this.x, this.y2, this.width, this.height);
         }
     }
 
     const piepGap = 200;
-    const p1 = new Pipe(300, piepGap);
-    const p2 = new Pipe(CANVAS_WIDTH, piepGap);
-    const pieps = [p1, p2];
+    let p1 = new Pipe(400, piepGap);
+    let p2 = new Pipe(CANVAS_WIDTH + 100, piepGap);
+    let pieps = [p1, p2];
 
-    let image1 = new Image();
+    const image1 = new Image();
     image1.src = 'assets/pipe1.png';
 
-    let image2 = new Image();
+    const image2 = new Image();
     image2.src = 'assets/pipe2.png';
 
+    window.addEventListener('keydown', (event) => {
+        if (event.code === "Space" && !isGameOver)
+            player.yVelocity = -player.jumpHeight;
+
+        else if (event.code === "Space" && isGameOver) {
+            resetGame();
+        }
+
+    })
+
+//                                      PLAYER LOGIC
     class Player {
         constructor(iWidth, iHeight, iCount) {
             this.x = 100;
             this.y = 300;
-            this.width = 100;
-            this.height = 100;
-            this.speed = Math.random() * 1 + 1;
-            this.angle = 0;
+            this.width = 50;
+            this.height = 50;
+            // this.angle = 0;
+            this.velocityChangeFactor = 0.1;
+            this.yVelocity = 0;
             this.currentFrame = 0;
-            this.staggeredFrames = 3;
             this.image = new Image();
             this.image.src = `assets/player.png`;
             this.iCount = iCount;
@@ -125,54 +133,172 @@ addEventListener('load', function () {
             this.jumpHeight = 5;
         }
         update() {
-            // this.x -= this.speed;
-            // if (this.x < -this.width) this.x = CANVAS_WIDTH;
-            // if(this.y < CANVAS_HEIGHT - this.frameHeight/1.5) this.y += this.speed;
-            this.y += Math.sin(this.angle) * this.jumpHeight;
-            this.angle += 0.1;
-            this.currentFrame = (Math.floor(gameFrame * animationSpeed / this.staggeredFrames) % this.iCount) * this.frameWidth;
+            // this.y += Math.sin(this.angle) * this.jumpHeight;
+            // this.angle += 0.1;
+            this.y += this.yVelocity;
+            this.yVelocity += this.velocityChangeFactor;
+            this.velocityChangeFactor += 0.0001;
+            this.jumpHeight += 0.001;
+            this.currentFrame = (Math.floor(gameFrame * playerAnimationSpeed / 5) % this.iCount) * this.frameWidth;
         }
         draw() {
             ctx.drawImage(this.image, this.currentFrame, 0, this.frameWidth, this.frameHeight,
                 this.x, this.y, this.width, this.height);
+            
+            // ctx.strokeRect(this.x + 10, this.y + 5, this.width - 20  , this.height - 10);
         }
     }
 
-    const player = new Player(1596, 188, 6);
+    let player = new Player(1596, 188, 6);
+
+//                                  COLLISIONS
+    function checkCollision(owl, pipeX, pipeY1, pipeY2, pipeX1, pipeY11, pipeY21) {
+        const pipeWidth = 100;
+        const pipeHeight = 500;
+        const owlX = owl.x + 10;
+        const owlY = owl.y + 5;
+        const owlWidth = owl.width - 20;
+        const owlHeight = owl.height - 10
+
+        // 1. Check if the owl is horizontally inside the pipe column
+        // (This is the same for both pipes, so we only check it once)
+        const inPipeXRange = owlX < pipeX + pipeWidth &&
+            owlX + owlWidth > pipeX;
+
+        // 2. Check if the owl overlaps the FIRST pipe vertically
+        const hitPipe1 = owlY < pipeY1 + pipeHeight &&
+            owlY + owlHeight > pipeY1;
+
+        // 3. Check if the owl overlaps the SECOND pipe vertically
+        const hitPipe2 = owlY < pipeY2 + pipeHeight &&
+            owlY + owlHeight > pipeY2;
+        
+        // repeat for the second pipe (there are 2 pipes repeating)
+
+
+        const inPipeXRange1 = owlX < pipeX1 + pipeWidth &&
+            owlX + owlWidth > pipeX1;
+
+        // 2. Check if the owl overlaps the FIRST pipe vertically
+        const hitPipe11= owlY < pipeY11 + pipeHeight &&
+            owlY + owlHeight > pipeY11;
+
+        // 3. Check if the owl overlaps the SECOND pipe vertically
+        const hitPipe21 = owlY < pipeY21 + pipeHeight &&
+            owlY + owlHeight > pipeY21;
+
+        // If the owl is in the X range AND hits either the top or bottom pipe...
+        if ((inPipeXRange && (hitPipe1 || hitPipe2)) || 
+            (inPipeXRange1 && (hitPipe11 || hitPipe21))) {
+            return true; // Crash!
+        }
+
+        // the floor/ceiling bounds!
+        if (owl.y < -100 || owl.y + owl.height + 150 > canvas.height) {
+            return true; // Crash!
+        }
+
+        if (score > localStorage.getItem("highScore"))
+            localStorage.setItem("highScore", score);
+
+        score += gameSpeed / 300;
+
+        return false; // Safe!
+    }
+    
+    function drawScore() {
+        ctx.textAlign = "left"; 
+        ctx.fillStyle = "black";
+        ctx.font = "24px Arial";
+        // Draw text: "Score: 100" at x=10, y=30
+        ctx.fillText("Score: " + score.toFixed(0), 10, 30); 
+        ctx.fillStyle = "white";
+        ctx.fillText("Score: " + score.toFixed(0), 10, 31);
+    }
+
+    function GameOverScreen() {
+        // Semi-transparent black background
+        ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Game Over Text
+        ctx.fillStyle = "white";
+        ctx.font = "40px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 20);
+
+        // Instructions to restart
+        ctx.font = "20px Arial";
+        ctx.fillText("Press Spacebar Restart", canvas.width / 2, canvas.height / 2 + 30);
+
+        // Loading later
+        let best = localStorage.getItem("highScore") || 0;
+        best = Number(best);
+
+        ctx.font = "20px Arial";
+        ctx.fillText(`High Score: ${best.toFixed(0)}`, canvas.width / 2, canvas.height / 2 + 55);
+
+    }
+
+    function resetGame() {
+        player = new Player(1596, 188, 6);
+        p1 = new Pipe(400, piepGap);
+        p2 = new Pipe(CANVAS_WIDTH + 100, piepGap);
+        pieps = [p1, p2];
+        gameSpeed = 4;
+        playerAnimationSpeed = 2;
+        gameFrame = 0;
+        score = 0;
+        isGameOver = false; 
+        // animate();
+    };
 
 
 
 
+
+//                                   game LOOP
     function animate() {
         ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-        for (let i = 0; i < 4; i++){
-            layers[i].update();
-            layers[i].draw();
+
+        if (!isGameOver) {
+            // Draw everything but the floor to not let the pipes over it.
+            for (let i = 0; i < 4; i++) {
+                layers[i].update();
+                layers[i].draw();
+            }
+
+            // Draw pipes
+            pieps.forEach((element) => {
+                element.update();
+                element.draw();
+            });
+
+            // Draw floor
+            layers[4].update();
+            layers[4].draw();
+            // Draw Player
+            player.update();
+            player.draw();
+            drawScore();
+            if (checkCollision(player, p1.x, p1.y1, p1.y2, p2.x, p2.y1, p2.y2)) {
+                isGameOver = true;
+            }
+
+
+            gameSpeed += 0.001;
+            gameFrame++;
         }
-        // layers.forEach((element) => {
-        //     element.update();
-        //     element.draw();
-        // })
+        else {
+            // --GAMEOVER STATE--
+            // Draw everything without updating so the screen stays frozen
+            for (let i = 0; i < 4; i++) layers[i].draw();
+            pieps.forEach((element) => element.draw());
+            layers[4].draw();
+            player.draw();
 
-        pieps.forEach((element) => {
-            element.update();
-            element.draw();
-        })
-
-        
-
-        // ctx.drawImage(image1, 350, 250, 100, 500);
-        // ctx.drawImage(image1, 350, 600, 100, 500);
-        // ctx.drawImage(image2, 350, 600 - 200 - 500, 100, 500);
-
-        layers[4].update();
-        layers[4].draw();
-
-        player.update();
-        player.draw();
-
-
-        gameFrame++;
+            GameOverScreen();
+        }
         requestAnimationFrame(animate);
     }
     animate();
