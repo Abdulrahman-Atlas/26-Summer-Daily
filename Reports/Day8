@@ -1,0 +1,24 @@
+Date: 30/06/2026
+
+Day Number: Day 7 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Learned and implemented collision detection between rectangles.
+
+    - Added score system to the game.
+
+    - Added highscore browser stored variable.
+
+    - Added gameOver screen with reset instruction and the highest score achieved.
+
+    - Added keydown event listener to reset the game.
+
+    - Optimized gameloop for better performance.
+
+    - Finished and tested the game for potential bugs.
+
+Next to-do:
+
