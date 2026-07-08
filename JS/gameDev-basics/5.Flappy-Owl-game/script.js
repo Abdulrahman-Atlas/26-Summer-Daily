@@ -151,7 +151,7 @@ addEventListener('load', function () {
 
     let player = new Player(1596, 188, 6);
 
-//                                  COLLISIONS
+//                                  COLLISIONS CHECKS
     function checkCollision(owl, pipeX, pipeY1, pipeY2, pipeX1, pipeY11, pipeY21) {
         const pipeWidth = 100;
         const pipeHeight = 500;
@@ -292,10 +292,12 @@ addEventListener('load', function () {
         else {
             // --GAMEOVER STATE--
             // Draw everything without updating so the screen stays frozen
+            
             for (let i = 0; i < 4; i++) layers[i].draw();
             pieps.forEach((element) => element.draw());
             layers[4].draw();
             player.draw();
+            drawScore();
 
             GameOverScreen();
         }
