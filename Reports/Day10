@@ -1,0 +1,23 @@
+Date: 03/07/2026
+
+Day Number: Day 10 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Added mouse input with javascript addEventListener to track screen coordinates.
+
+    - Implemented hitbox click effects and collision detection (matching mouse offsetX/offsetY to moving entity dimensions).
+
+    - Added keydown event listener to reset the game.
+
+    - Built a custom, dynamic particle physics system for explosion debris with randomized speeds and colors.
+
+    - Managed game memory and state by actively filtering and splicing destroyed or off-screen objects from arrays.
+
+    - Added sound effects on impact.
+
+Next to-do:
+
+    - Plan a larger game as a finisher and start with 3d game development.
