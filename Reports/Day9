@@ -1,0 +1,25 @@
+Date: 02/07/2026
+
+Day Number: Day 9 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Practically learned adding animated effects in 2d games.
+
+    - Learned adding sound effects in js.
+
+    - Explored mouse input with javascript addEventListener.
+
+    - Implemented hitbox click effects.
+
+    - Added keydown event listener to reset the game.
+
+    - Planned a shooter game structure to develop and implement what I learned on.
+
+    - Initialized the new game's html and css structure.
+
+Next to-do:
+
+    - complete the shooter game.

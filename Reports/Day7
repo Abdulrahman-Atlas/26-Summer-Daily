@@ -18,7 +18,7 @@ WORK DONE:
 
     - Added event listener for the keyboard input for the jumps.
 
-    - Made the game run faster as time passes to increase difficulty.
+    - Made the game run faster as time passes to increase difficulty and score.
 
 Next to-do:
 
