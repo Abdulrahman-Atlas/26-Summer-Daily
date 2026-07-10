@@ -1,0 +1,23 @@
+Date: 05/07/2026
+
+Day Number: Day 12 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Designed multiple enemy types (Normal, Fast, Tank) with distinct attributes and movement speeds that dynamically scale up across infinite waves.
+
+    - Implemented an AudioSystem using the HTML5 Audio Context to handle master volume adjustment and manage overlapping zombie groans via rate limiters.
+
+    - Engineered an in-game Shop system that leverages a persistent currency economy (Gold) to purchase weapon upgrades and refill reserve ammo.
+
+    - Handled collision physics for zombies bouncing off obstacles and getting knocked back upon taking damage.
+
+    - Refined the CSS DOM overlay layout to support flexbox wrapping, ensuring UI components gracefully adapt to small screen sizes without obscuring the canvas.
+
+    - Persisted the player's Best Score using the browser's localStorage API, updating upon death or restarting the game.
+
+Next to-do:
+
+    - Start learning 3D game development and exploring the next phase of the internship.
