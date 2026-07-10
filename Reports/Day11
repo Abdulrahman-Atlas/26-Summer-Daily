@@ -1,0 +1,23 @@
+Date: 04/07/2026
+
+Day Number: Day 11 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Built a robust HTML/CSS structure for the new Zombie Survival Arena game, focusing on clean flexbox layout and modern UI overlays.
+
+    - Implemented a custom 2D rendering loop using requestAnimationFrame in Game.js, complete with responsive window resizing and delta time tracking.
+
+    - Added Player.js with dynamic top-down movement logic, sprite rotation based on mouse coordinates, and bounding box collision detection against static obstacles.
+
+    - Integrated multiple weapon types (Pistol, Shotgun, Assault Rifle) with differing fire rates, bullet spread, clip sizes, and reload mechanics.
+
+    - Developed a Projectile system with lifetime management, collision checks against zombies, and off-screen despawning to preserve memory.
+
+    - Programmed a throwable Grenade class utilizing fuse timers, explosion hitboxes, and area-of-effect damage.
+
+Next to-do:
+
+    - Flesh out the enemy mechanics and progress the game through scaling difficulty waves.
