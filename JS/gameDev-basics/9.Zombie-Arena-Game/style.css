@@ -34,6 +34,7 @@ body {
 canvas {
     display: block;
     background-color: #2a2a35; /* fallback base color */
+    cursor: none; /* Hide default mouse pointer to show only crosshair */
     /* We'll draw the grid/tiled floor on the canvas itself */
 }
 

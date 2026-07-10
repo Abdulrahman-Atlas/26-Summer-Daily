@@ -57,10 +57,10 @@ document.getElementById('buy-ammo-btn').addEventListener('click', () => {
         
         // Refill reserve ammo
         const sg = game.player.weapons.find(w => w.name === 'SHOTGUN');
-        if (sg) sg.reserveAmmo += 24;
+        if (sg) sg.reserveAmmo += 30;
         
         const ar = game.player.weapons.find(w => w.name === 'ASSAULT RIFLE');
-        if (ar) ar.reserveAmmo += 90;
+        if (ar) ar.reserveAmmo += ar.maxAmmo * 3;
         
         game.player.updateUI();
         game.updateUI();

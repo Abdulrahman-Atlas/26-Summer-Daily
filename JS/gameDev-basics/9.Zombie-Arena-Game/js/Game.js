@@ -249,7 +249,7 @@ export class Game {
             
             // refill some health and grenades
             this.player.health = Math.min(this.player.maxHealth, this.player.health + 20);
-            this.player.grenadeCount = Math.min(3, this.player.grenadeCount + 1);
+            if(this.player.grenadeCount < 3) this.player.grenadeCount++;
             this.player.updateUI();
             
             this.updateUI();
@@ -264,7 +264,7 @@ export class Game {
 
     rewardKill() {
         this.score += 10 * this.wave;
-        this.player.gold += Math.floor(Math.random() * 10) + 5;
+        this.player.gold += Math.floor(Math.random() * (10 + this.wave / 10)) + 5;
         this.player.updateUI();
         this.updateUI();
     }
