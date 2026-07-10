@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombie Survival Arena</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-wrapper">
+        <div id="game-container">
+            <div id="ui-layer">
+                <div id="top-bar">
+                <div class="stat-box">
+                    <span>HP:</span>
+                    <div id="health-bar-container">
+                        <div id="health-bar"></div>
+                    </div>
+                    <span id="health-text">100/100</span>
+                </div>
+                <div class="stat-box">
+                    <span>GOLD: <span id="gold" style="color: #fbbf24;">0</span></span>
+                </div>
+                <div class="stat-box">
+                    <span>SCORE: <span id="score">0</span></span>
+                </div>
+                <div class="stat-box">
+                    <span>WAVE: <span id="wave">1</span></span>
+                </div>
+                <div class="stat-box">
+                    <span>ZOMBIES: <span id="zombies-remaining">10</span></span>
+                </div>
+            </div>
+
+            <div id="bottom-bar">
+                <div id="weapon-info">
+                    <span id="weapon-name">PISTOL</span>
+                    <div id="ammo-info">
+                        <span id="ammo-current">12</span> / <span id="ammo-total">∞</span>
+                    </div>
+                    <div id="reload-indicator" class="hidden">RELOADING...</div>
+                </div>
+                
+                <div id="inventory">
+                    <div class="inv-slot active" id="slot-1">
+                        <span class="slot-num">1</span>
+                        <span class="slot-name">PISTOL</span>
+                    </div>
+                    <div class="inv-slot" id="slot-2">
+                        <span class="slot-num">2</span>
+                        <span class="slot-name">SHOTGUN</span>
+                    </div>
+                    <div class="inv-slot" id="slot-3">
+                        <span class="slot-num">3</span>
+                        <span class="slot-name">RIFLE</span>
+                    </div>
+                    <div class="inv-slot grenade" id="slot-g">
+                        <span class="slot-num">G</span>
+                        <span class="slot-name">x<span id="grenade-count">3</span></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="game-over-screen" class="hidden overlay-screen">
+                <h1>GAME OVER</h1>
+                <p>YOU SURVIVED TO WAVE <span id="final-wave">1</span></p>
+                <p>FINAL SCORE: <span id="final-score">0</span></p>
+                <button id="restart-btn">PLAY AGAIN</button>
+            </div>
+            
+            <div id="pause-screen" class="hidden overlay-screen">
+                <h1>PAUSED</h1>
+                <p>PRESS [P] TO RESUME</p>
+            </div>
+            
+            <div id="start-screen" class="overlay-screen">
+                <h1>ZOMBIE ARENA</h1>
+                <p>SURVIVE THE HORDE</p>
+                <button id="start-btn">START GAME</button>
+            </div>
+            
+            <div id="wave-banner-screen" class="hidden overlay-screen" style="background: rgba(0,0,0,0.5);">
+                <h1 id="wave-banner-text" style="color: #fbbf24; font-size: 48px; text-shadow: 4px 4px 0 #000;">WAVE 2</h1>
+            </div>
+            
+            <div id="shop-screen" class="hidden overlay-screen">
+                <h1>WEAPON SHOP</h1>
+                <div id="shop-items" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; max-width: 800px;">
+                    <div class="shop-item">
+                        <h3>AMMO REFILL</h3>
+                        <p>All Weapons</p>
+                        <p style="font-size:10px; color:#aaa;">Bought: <span id="bought-ammo">0</span></p>
+                        <button id="buy-ammo-btn">BUY - 50G</button>
+                    </div>
+                    <div class="shop-item">
+                        <h3>GRENADE</h3>
+                        <p>+1 Explosive</p>
+                        <p style="font-size:10px; color:#aaa;">Bought: <span id="bought-grenade">0</span></p>
+                        <button id="buy-grenade-btn">BUY - 100G</button>
+                    </div>
+                    <div class="shop-item">
+                        <h3>SHOTGUN</h3>
+                        <p>Spread Damage</p>
+                        <p style="font-size:10px; color:#aaa;">Bought: <span id="bought-shotgun">0</span></p>
+                        <button id="buy-shotgun-btn">BUY - 250G</button>
+                    </div>
+                    <div class="shop-item">
+                        <h3>ASSAULT RIFLE</h3>
+                        <p>High Fire Rate</p>
+                        <p style="font-size:10px; color:#aaa;">Bought: <span id="bought-ar">0</span></p>
+                        <button id="buy-ar-btn">BUY - 400G</button>
+                    </div>
+                </div>
+                <p style="margin-top: 20px; font-size: 12px; color: #aaa;">PRESS [E] TO RESUME</p>
+            </div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    </div>
+    
+    <div id="side-controls">
+        <div id="bottom-right-stats">
+            <div class="stat-box right">
+                <span>BEST: <span id="best-score">0</span></span>
+            </div>
+            <div class="stat-box" id="volume-slider-container">
+                <label for="volume-slider" style="font-size: 8px;">VOL</label>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5" style="width: 50px;">
+            </div>
+        </div>
+        
+        <div id="controls-hint">
+            WASD: Move<br>
+            Mouse: Aim & Shoot<br>
+            1,2,3: Switch Weapon<br>
+            R: Reload<br>
+            G: Throw Grenade<br>
+            E: Open Shop<br>
+            P: Pause
+        </div>
+    </div>
+
+    <!-- Modules -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
