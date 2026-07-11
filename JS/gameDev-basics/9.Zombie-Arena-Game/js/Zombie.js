@@ -9,7 +9,7 @@ export class Zombie {
         // Base stats based on type
         if (type === 'FAST') {
             this.radius = 12;
-            this.speed = 110 + (Math.random() * 30) + (waveMultiplier * 6);
+            this.speed = Math.min(110 + (Math.random() * 30) + (waveMultiplier * 6), 180);
             this.maxHealth = 20 + (waveMultiplier * 5);
             this.damage = 5 + (waveMultiplier * 2);
             this.color = '#ef4444'; // Red
@@ -23,7 +23,7 @@ export class Zombie {
             this.skin = '#4b5563';
         } else {
             this.radius = 14;
-            this.speed = 80 + (Math.random() * 20) + (waveMultiplier * 5);
+            this.speed = Math.min(80 + (Math.random() * 20) + (waveMultiplier * 5), 150);
             this.maxHealth = 40 + (waveMultiplier * 10);
             this.damage = 10 + (waveMultiplier * 2);
             this.color = '#22c55e'; // Green

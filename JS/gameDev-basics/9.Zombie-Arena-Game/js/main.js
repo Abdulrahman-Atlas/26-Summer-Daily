@@ -60,7 +60,7 @@ document.getElementById('buy-ammo-btn').addEventListener('click', () => {
         if (sg) sg.reserveAmmo += 30;
         
         const ar = game.player.weapons.find(w => w.name === 'ASSAULT RIFLE');
-        if (ar) ar.reserveAmmo += ar.maxAmmo * 3;
+        if (ar) ar.reserveAmmo += ar.maxAmmo * 4;
         
         game.player.updateUI();
         game.updateUI();

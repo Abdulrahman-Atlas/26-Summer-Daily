@@ -22,7 +22,6 @@ export class Player {
         ];
         this.currentWeaponIndex = 0;
         this.grenadeCount = 3;
-        this.gold = 0;
         
         this.purchaseCounts = {
             ammo: 0,
@@ -35,7 +34,7 @@ export class Player {
             ammo: 50,
             grenade: 100,
             shotgun: 250,
-            ar: 400
+            ar: 250
         };
         
         this.updateUI();

@@ -44,9 +44,9 @@ export class Game {
         this.updateUI();
         
         // Reset Shop UI
-        document.getElementById('buy-shotgun-btn').innerText = `BUY - 250G`;
+        document.getElementById('buy-shotgun-btn').innerText = `BUY - ${this.player.shopPrices.shotgun}G`;
         document.getElementById('bought-shotgun').innerText = '0';
-        document.getElementById('buy-ar-btn').innerText = `BUY - 400G`;
+        document.getElementById('buy-ar-btn').innerText = `BUY - ${this.player.shopPrices.ar}G`;
         document.getElementById('bought-ar').innerText = '0';
         document.getElementById('bought-ammo').innerText = '0';
         document.getElementById('bought-grenade').innerText = '0';
