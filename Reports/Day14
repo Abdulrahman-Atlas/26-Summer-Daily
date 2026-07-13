@@ -1,0 +1,19 @@
+Date: 07/07/2026
+
+Day Number: Day 14 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Deeply researched various game engines and ultimately chose to use Godot for the second half of the internship.
+
+    - Spent a lot of time learning the GDScript syntax, covering core concepts like variables, custom functions, arrays, dictionaries, loops, and conditions.
+
+    - Studied Godot's unique node system, signals, and how classes inherit from each other in the scene tree.
+
+    - Explored the Godot UI to understand where everything is located, including the inspector, file system, and 3D workspace.
+
+Next to-do:
+
+    - Put the GDScript and engine knowledge into practice by making a basic 3D game.
