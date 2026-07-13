@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cfxin2p0lp41u"]
+
+[ext_resource type="Script" uid="uid://bbjolvgmtdqbi" path="res://assets/Player/player.gd" id="1_xg5j1"]
+[ext_resource type="PackedScene" uid="uid://7w61ssuo3qxm" path="res://assets/Player/gun.tscn" id="2_qm3y6"]
+[ext_resource type="Texture2D" uid="uid://dse2jxnpak4mr" path="res://assets/Sprites/crosshair.png" id="3_7gujn"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_akiqj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lk7nm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_akiqj"]
+line_spacing = 18.49
+paragraph_spacing = 8.565
+font_size = 85
+
+[node name="player" type="CharacterBody3D" unique_id=1028518792 groups=["player"]]
+script = ExtResource("1_xg5j1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=12947853]
+mesh = SubResource("CapsuleMesh_akiqj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1841455766]
+shape = SubResource("CapsuleShape3D_lk7nm")
+
+[node name="head" type="Node3D" parent="." unique_id=870790872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head" unique_id=551056965]
+current = true
+
+[node name="gun" parent="head/Camera3D" unique_id=472996343 instance=ExtResource("2_qm3y6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33746153, -0.35752684, -0.63651484)
+
+[node name="Label" type="Label" parent="head/Camera3D" unique_id=785892932]
+offset_left = 1638.0
+offset_top = 953.0
+offset_right = 1885.0
+offset_bottom = 1071.0
+text = ". / ."
+label_settings = SubResource("LabelSettings_akiqj")
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="head/Camera3D" unique_id=585702973]
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 1024.0
+offset_bottom = 604.0
+texture = ExtResource("3_7gujn")
+
+[node name="healthBar" type="ProgressBar" parent="head/Camera3D" unique_id=104400080]
+self_modulate = Color(1, 0, 0, 1)
+anchors_preset = -1
+anchor_right = 0.135
+anchor_bottom = 0.18900001
+offset_left = 64.0
+offset_top = 822.0
+offset_right = -169.20001
+offset_bottom = 863.88
+max_value = 3.0
+value = 0.87
+fill_mode = 3
+show_percentage = false

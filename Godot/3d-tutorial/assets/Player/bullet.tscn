@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b1ydim5oxv2lr"]
+
+[ext_resource type="Script" uid="uid://drjxgxccle5pa" path="res://assets/Player/bullet.gd" id="1_75dqj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ki1wk"]
+albedo_color = Color(1, 0.23529412, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_akiqj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lk7nm"]
+radius = 0.009765625
+height = 0.105789185
+
+[node name="bullet" type="Area3D" unique_id=1845862107]
+script = ExtResource("1_75dqj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1292733134]
+transform = Transform3D(0.02, 0, 0, 0, -2.1855695e-09, -0.02, 0, 0.05, -8.7422775e-10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ki1wk")
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_akiqj")
+
+[node name="Timer" type="Timer" parent="." unique_id=2004473424]
+wait_time = 3.0
+autostart = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1458934210]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.00046260632, 0.0010348372)
+shape = SubResource("CapsuleShape3D_lk7nm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
