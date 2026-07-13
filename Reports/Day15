@@ -1,0 +1,23 @@
+Date: 08/07/2026
+
+Day Number: Day 15 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Made my first 3D tutorial game in the Godot engine to test my new skills.
+
+    - Imported and set up 3D models and successfully implemented animations.
+
+    - Added 3D collisions to the environment and the entities so nothing falls through the floor.
+
+    - Integrated audio for shooting and impacts.
+
+    - Built a basic player UI displaying the current bullet counts and a working health bar.
+
+    - Programmed enemies, guns, movement logic, and basic pathfinding for the enemies to follow the player.
+
+Next to-do:
+
+    - Explore Godot further and start building a new 3D project.
