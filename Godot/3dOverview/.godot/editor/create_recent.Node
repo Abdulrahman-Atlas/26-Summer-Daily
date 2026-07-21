@@ -1,0 +1,13 @@
+CharacterBody3D
+OmniLight3D
+AnimationPlayer
+Node3D
+CollisionShape3D
+StaticBody3D
+Area3D
+RigidBody3D
+Camera3D
+CSGCombiner3D
+CSGCylinder3D
+CSGBox3D
+MeshInstance3D

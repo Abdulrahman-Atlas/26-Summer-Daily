@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bo0ppo1t5utkd"]
+
+[ext_resource type="PackedScene" uid="uid://dqgsl1xgvml2" path="res://zombie/zombie.glb" id="1_4gx57"]
+[ext_resource type="AnimationLibrary" uid="uid://ds71gcuu7u7wy" path="res://zombie/zombie_idle.glb" id="2_ycv6i"]
+[ext_resource type="AnimationLibrary" uid="uid://5j70k2ckpwim" path="res://zombie/zombie_jump.glb" id="3_pjjxt"]
+[ext_resource type="AnimationLibrary" uid="uid://dgq7mewasqihm" path="res://zombie/zombie_run.glb" id="4_7pfmu"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1218522759]
+
+[node name="zombie" parent="." unique_id=208371908 instance=ExtResource("1_4gx57")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="zombie" unique_id=1562604806]
+libraries/zombie_idle = ExtResource("2_ycv6i")
+libraries/zombie_jump = ExtResource("3_pjjxt")
+libraries/zombie_run = ExtResource("4_7pfmu")

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://4hvfe85caya0"]
+
+[ext_resource type="Texture2D" uid="uid://j0odtb4f4d1l" path="res://Assets/Gray_prototype_textures.png" id="1_a02cp"]
+[ext_resource type="Script" uid="uid://mli032hk71ca" path="res://Scripts/floor.gd" id="2_8j60k"]
+[ext_resource type="Script" uid="uid://bmy8esv36gewp" path="res://Scripts/player.gd" id="2_go701"]
+[ext_resource type="Script" uid="uid://cwt05dai3xsm1" path="res://Scripts/obstacleSpawner.gd" id="3_5a7ea"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="4_gamemanager"]
+[ext_resource type="Texture2D" uid="uid://euq7ml6ythav" path="res://Assets/game_sky.exr" id="5_gamesky"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ki1wk"]
+size = Vector3(10, 1, 500)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrqyt"]
+albedo_color = Color(0.19215687, 1, 0, 1)
+albedo_texture = ExtResource("1_a02cp")
+albedo_texture_force_srgb = true
+uv1_triplanar = true
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a02cp"]
+panorama = ExtResource("5_gamesky")
+
+[sub_resource type="Sky" id="Sky_go701"]
+sky_material = SubResource("PanoramaSkyMaterial_a02cp")
+
+[sub_resource type="Environment" id="Environment_5a7ea"]
+background_mode = 2
+sky = SubResource("Sky_go701")
+glow_enabled = true
+glow_intensity = 0.5
+glow_bloom = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akiqj"]
+albedo_color = Color(0, 0.8, 1, 1)
+albedo_texture = ExtResource("1_a02cp")
+emission_enabled = true
+emission = Color(0, 0.8, 1, 1)
+emission_energy_multiplier = 1.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_akiqj"]
+material = SubResource("StandardMaterial3D_akiqj")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_akiqj"]
+
+[node name="World" type="Node3D" unique_id=1583132209]
+script = ExtResource("4_gamemanager")
+
+[node name="floor" type="CSGMesh3D" parent="." unique_id=891352571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
+use_collision = true
+mesh = SubResource("BoxMesh_ki1wk")
+material = SubResource("StandardMaterial3D_nrqyt")
+script = ExtResource("2_8j60k")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1732565222]
+environment = SubResource("Environment_5a7ea")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1149057279]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="player" type="CharacterBody3D" parent="." unique_id=386362847]
+script = ExtResource("2_go701")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=1614613661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98897195, 6.003069)
+mesh = SubResource("BoxMesh_akiqj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=2116171824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9825978, 6.00196)
+shape = SubResource("BoxShape3D_akiqj")
+
+[node name="Camera3D" type="Camera3D" parent="player" unique_id=1308554798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8557503, 10.2837105)
+
+[node name="obstacleSpawner" type="Node3D" parent="." unique_id=469554049]
+script = ExtResource("3_5a7ea")

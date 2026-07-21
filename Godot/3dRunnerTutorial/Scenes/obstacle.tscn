@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cnougx5vf2n0d"]
+
+[ext_resource type="Script" uid="uid://dyxn4dedp1tea" path="res://Scripts/obstacle.gd" id="1_15o2q"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_akiqj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ki1wk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nrqyt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qg8wo"]
+
+[node name="obstacle" type="Node3D" unique_id=1142640836]
+script = ExtResource("1_15o2q")
+
+[node name="leftWall" type="StaticBody3D" parent="." groups=["obstacle"] unique_id=984485728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="leftMesh" type="MeshInstance3D" parent="leftWall" unique_id=897960857]
+mesh = SubResource("BoxMesh_akiqj")
+
+[node name="leftColl" type="CollisionShape3D" parent="leftWall" unique_id=1685541295]
+shape = SubResource("BoxShape3D_ki1wk")
+
+[node name="rightWall" type="StaticBody3D" parent="." groups=["obstacle"] unique_id=1637859097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="rightMesh" type="MeshInstance3D" parent="rightWall" unique_id=706778076]
+mesh = SubResource("BoxMesh_nrqyt")
+
+[node name="rightColl" type="CollisionShape3D" parent="rightWall" unique_id=1983771013]
+shape = SubResource("BoxShape3D_qg8wo")

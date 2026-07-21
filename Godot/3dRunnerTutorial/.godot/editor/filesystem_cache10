@@ -1,0 +1,16 @@
+78098b89c88a74ebe8c20117b8754620
+::res://::1784184020
+icon.svg::CompressedTexture2D::7338101180887477746::1783967621::1783967624::1::::<><><>0<>0<>fb7cdcdae533967c6f18c8adf104fa59<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Assets/::1783968175
+game_sky.exr::CompressedTexture2D::323072195636920553::1783967912::1784184439::1::::<><><>0<>0<>6b89a86842b05e927ddecdc1ae1919a8<>res://.godot/imported/game_sky.exr-d7c31050413a1217b88e3504a27d8bc0.bptc.ctex::
+Gray_prototype_textures.png::CompressedTexture2D::684165432688141347::1783967912::1783968175::1::::<><><>0<>0<>b4f33ca70e27961d6f7a64e0375ca0cb<>res://.godot/imported/Gray_prototype_textures.png-654ca0bca31ac762dfef123068d2c367.s3tc.ctex::
+::res://Scenes/::1784088026
+obstacle.tscn::PackedScene::5715423933199307089::1784184339::0::1::::<><><>0<>0<><>::uid://dyxn4dedp1tea::::res://Scripts/obstacle.gd
+tempObstacle.tscn::PackedScene::7055168149542504171::1783982333::0::1::::<><><>0<>0<><>::uid://j0odtb4f4d1l::::res://Assets/Gray_prototype_textures.png
+world.tscn::PackedScene::2051211358036687257::1784184376::0::1::::<><><>0<>0<><>::uid://j0odtb4f4d1l::::res://Assets/Gray_prototype_textures.png<>uid://mli032hk71ca::::res://Scripts/floor.gd<>uid://bmy8esv36gewp::::res://Scripts/player.gd<>uid://cwt05dai3xsm1::::res://Scripts/obstacleSpawner.gd
+::res://Scripts/::1784184383
+floor.gd::GDScript::865506172437022700::1784082490::0::1::::<>CSGMesh3D<><>0<>0<><>::
+game_manager.gd::GDScript::5466028865506529724::1784184352::0::1::::<>Node3D<><>0<>0<><>::
+obstacle.gd::GDScript::8892116259571324660::1784184383::0::1::::<>Node3D<><>0<>0<><>::
+obstacleSpawner.gd::GDScript::6357790761358235250::1784082651::0::1::::<>Node3D<><>0<>0<><>::
+player.gd::GDScript::3280243656558892011::1784184330::0::1::::<>CharacterBody3D<><>0<>0<><>::
