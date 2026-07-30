@@ -1,8 +1,10 @@
 extends SpringArm3D
 
 @onready  var camera: Camera3D = $Camera3D
-@export var sens : float = 100.0
+@export var sens : float = 50.0
 var mouseInput : Vector2 = Vector2.ZERO
+@onready var player: CharacterBody3D = $".."
+var cameraRigHeight : float = position.y
 
 func _ready() -> void:
 	# overwriting spring length to match camera z position
@@ -22,3 +24,9 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouseInput = event.relative
+	elif event is InputEventKey and event.keycode == KEY_ESCAPE and event.pressed:
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			

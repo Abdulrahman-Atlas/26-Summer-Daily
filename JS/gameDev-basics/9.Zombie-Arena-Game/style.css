@@ -34,7 +34,7 @@ body {
 canvas {
     display: block;
     background-color: #2a2a35; /* fallback base color */
-    cursor: none; /* Hide default mouse pointer to show only crosshair */
+    cursor: crosshair; /* Show crosshair */
     user-select: none;
     -webkit-user-select: none;
     -webkit-user-drag: none; /* Prevents dragging the canvas as an image */
