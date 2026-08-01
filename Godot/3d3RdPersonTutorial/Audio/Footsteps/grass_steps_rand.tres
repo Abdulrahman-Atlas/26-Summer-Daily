@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://csh81w7khvsjd"]
+
+[ext_resource type="AudioStream" uid="uid://djrd5wyu1bm0f" path="res://Audio/Footsteps/grass_step_2.wav" id="1_fr61a"]
+[ext_resource type="AudioStream" uid="uid://b2g046u44dbon" path="res://Audio/Footsteps/grass_step_1.wav" id="2_falid"]
+[ext_resource type="AudioStream" uid="uid://dwka0c88o5k1t" path="res://Audio/Footsteps/grass_step_3.wav" id="3_i7pa1"]
+[ext_resource type="AudioStream" uid="uid://dh27486uefd25" path="res://Audio/Footsteps/grass_step_4.wav" id="4_4hlyo"]
+
+[resource]
+random_pitch = 1.0717734
+random_volume_offset_db = 0.1
+streams_count = 4
+stream_0/stream = ExtResource("1_fr61a")
+stream_1/stream = ExtResource("2_falid")
+stream_2/stream = ExtResource("3_i7pa1")
+stream_3/stream = ExtResource("4_4hlyo")
