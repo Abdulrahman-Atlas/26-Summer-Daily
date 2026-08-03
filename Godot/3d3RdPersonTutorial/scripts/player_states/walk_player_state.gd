@@ -15,7 +15,7 @@ func preUpdate(player: Player) -> void:
 	elif curren_speed > player.run_speed:
 		player.change_state_to(PlayerStates.RUN)
 
-func update(player : Player, delta: float) -> void:
+func update(player : Player, _delta: float) -> void:
 	var direction : Vector3 = player.get_move_input()
 	player.update_velocity(direction)
 	player.move_and_slide()

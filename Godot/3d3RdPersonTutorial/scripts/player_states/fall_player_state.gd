@@ -11,6 +11,6 @@ func preUpdate(player: Player) -> void:
 func update(player : Player, delta: float) -> void:
 	var direction : Vector3 = player.get_move_input()
 	player.velocity += player.get_gravity() * delta
-	player.update_velocity(direction, player.SPEED * 0.25)
+	player.update_velocity(direction, player.SPEED * 0.5)
 	player.move_and_slide()
 	player.turn_to(direction)

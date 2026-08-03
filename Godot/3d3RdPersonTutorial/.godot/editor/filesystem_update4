@@ -1,11 +1,1 @@
-res://scenes/main.tscn
-res://scripts/player_states/base_player_state.gd
-res://scripts/player.gd
-res://scripts/player_states/player_idle_state.gd
-res://scripts/player_states/walk_player_state.gd
-res://scripts/player_states/fall_player_state.gd
-res://scripts/player_states/run_player_state.gd
-res://scripts/player_states/idle_player_state.gd
-res://scripts/player_states/player_states.gd
 res://scenes/player.tscn
-res://scripts/player_states/jump_player_state.gd
