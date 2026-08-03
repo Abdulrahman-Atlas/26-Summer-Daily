@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://l3e3v3e3l3s3"]
+
+[ext_resource type="PackedScene" uid="uid://dyiosxd2ce3fe" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://ccewegsgi76wt" path="res://scenes/wall.tscn" id="2_wall"]
+[ext_resource type="Texture2D" uid="uid://cjy6xc1qnxb84" path="res://textures/floor_wood.jpg" id="3_floor_tex"]
+[ext_resource type="Texture2D" uid="uid://cqvygwwsuscw0" path="res://textures/ceiling_tiles.jpg" id="4_ceiling_tex"]
+[ext_resource type="PackedScene" uid="uid://k1p2t3m4n5o6" path="res://scenes/keypad_terminal.tscn" id="5_terminal"]
+[ext_resource type="PackedScene" uid="uid://p1o2r3t4a5l6" path="res://scenes/portal.tscn" id="6_portal"]
+[ext_resource type="PackedScene" uid="uid://d1e2f3g4h5i6" path="res://scenes/table.tscn" id="7_table"]
+[ext_resource type="PackedScene" uid="uid://e2f3g4h5i6j7" path="res://scenes/drawer.tscn" id="8_drawer"]
+[ext_resource type="PackedScene" uid="uid://c4p2k8nav7x10" path="res://scenes/pause_menu.tscn" id="9_pmenu"]
+[ext_resource type="PackedScene" uid="uid://b7y8yam0p1k23" path="res://scenes/keypad_ui.tscn" id="10_keypad"]
+[ext_resource type="PackedScene" uid="uid://c1h2a3i4r5s6" path="res://scenes/chair.tscn" id="11_chair"]
+[ext_resource type="PackedScene" uid="uid://b1o2o3k4s5h6" path="res://scenes/bookshelf.tscn" id="12_bookshelf"]
+[ext_resource type="PackedScene" uid="uid://t1r2a3s4h5c6" path="res://scenes/trash_can.tscn" id="13_trash"]
+[ext_resource type="PackedScene" uid="uid://dohkep1g1tkbi" path="res://scenes/editable_note.tscn" id="14_note"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sky"]
+sky_horizon_color = Color(0.2, 0.35, 0.5, 1)
+ground_horizon_color = Color(0.2, 0.35, 0.5, 1)
+
+[sub_resource type="Sky" id="Sky_sky"]
+sky_material = SubResource("ProceduralSkyMaterial_sky")
+
+[sub_resource type="Environment" id="Environment_env"]
+background_mode = 2
+sky = SubResource("Sky_sky")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+albedo_texture = ExtResource("3_floor_tex")
+roughness = 0.3
+uv1_scale = Vector3(4, 4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+material = SubResource("StandardMaterial3D_floor")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(15, 1, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ceiling"]
+albedo_texture = ExtResource("4_ceiling_tex")
+roughness = 0.5
+uv1_scale = Vector3(4, 4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ceiling"]
+material = SubResource("StandardMaterial3D_ceiling")
+
+[node name="Level3" type="Node3D" unique_id=1439346752]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1593688066]
+environment = SubResource("Environment_env")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=19849565]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 8, 0)
+shadow_enabled = true
+
+[node name="room" type="Node3D" parent="." unique_id=1354227008]
+
+[node name="wall" parent="room" unique_id=1838337321 instance=ExtResource("2_wall")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="wall2" parent="room" unique_id=1081947521 instance=ExtResource("2_wall")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="wall3" parent="room" unique_id=800840749 instance=ExtResource("2_wall")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 0)
+
+[node name="wall4" parent="room" unique_id=1041146705 instance=ExtResource("2_wall")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, 0)
+
+[node name="floor" type="StaticBody3D" parent="room" unique_id=1937961741]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="room/floor" unique_id=470809469]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 15, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="room/floor" unique_id=1405298754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_floor")
+
+[node name="ceiling" type="StaticBody3D" parent="room" unique_id=776447173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="room/ceiling" unique_id=638982399]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 15, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_ceiling")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="room/ceiling" unique_id=1733895506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_floor")
+
+[node name="KeypadTerminal" parent="room" unique_id=2022642852 instance=ExtResource("5_terminal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -6.3)
+secret_code = "0812"
+
+[node name="Portal" parent="room" unique_id=1654354366 instance=ExtResource("6_portal")]
+transform = Transform3D(-4.3711378e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711378e-08, 6.4, 0, 0)
+next_scene_path = "res://scenes/level_4.tscn"
+
+[node name="Table" parent="room" unique_id=1223837737 instance=ExtResource("7_table")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Chair" parent="room" unique_id=203712395 instance=ExtResource("11_chair")]
+transform = Transform3D(-0.9998872, 0, 0.0150158405, 0, 1, 0, -0.0150158405, 0, -0.9998872, 0, 0, -2.7)
+
+[node name="DrawerCabinet" parent="room" unique_id=1050710962 instance=ExtResource("8_drawer")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.2, 0, -3)
+
+[node name="BookshelfEast" parent="room" unique_id=1528948495 instance=ExtResource("12_bookshelf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.4, 0, -3)
+
+[node name="BookshelfWest" parent="room" unique_id=537032872 instance=ExtResource("12_bookshelf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.4, 0, 3)
+
+[node name="TrashCan" parent="room" unique_id=1480469588 instance=ExtResource("13_trash")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2, 0, 6.2)
+
+[node name="NoteTopBookshelf" parent="room" unique_id=1134260659 instance=ExtResource("14_note")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.3, 1.8983622, -3)
+note_title = "Riddle Part 1"
+note_text = "COUNT ALL RED BOOKS IN THE ROOM.
+MULTIPLY BY THE NUMBER OF LEGS ON THE TABLE.
+
+THIS GIVES THE FIRST TWO DIGITS."
+
+[node name="NoteWestShelf" parent="room" unique_id=1180723513 instance=ExtResource("14_note")]
+transform = Transform3D(-0.9984106, 0.053457305, 0.01784991, 0.053448763, 0.99857014, -0.0009555744, -0.017875468, 0, -0.9998402, -6.2507796, 1.0017989, 2.9001105)
+note_title = "Riddle Part 2"
+note_text = "COUNT THE NUMBER OF DRAWERS ON THE CABINET.
+MULTIPLY BY THE NUMBER OF LEGS ON THE CHAIR.
+THIS GIVES THE LAST TWO DIGITS."
+
+[node name="NoteOnTable" parent="room" unique_id=46192377 instance=ExtResource("14_note")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9017852, 1.5161241, -3.320794)
+note_title = "."
+note_text = "Solve the riddle"
+
+[node name="player" parent="." unique_id=1841879223 instance=ExtResource("1_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="PauseMenu" parent="." unique_id=566132144 instance=ExtResource("9_pmenu")]
+
+[node name="KeypadUI" parent="." unique_id=972834131 instance=ExtResource("10_keypad")]

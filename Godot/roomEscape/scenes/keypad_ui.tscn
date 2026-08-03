@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://b7y8x9m0p1k23"]
+
+[ext_resource type="Script" path="res://scripts/keypad_ui.gd" id="1_keypad"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.1, 0.12, 0.16, 0.95)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_disp"]
+bg_color = Color(0.02, 0.05, 0.03, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.6, 0.3, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="KeypadUI" type="CanvasLayer" groups=["keypad_ui"]]
+process_mode = 3
+script = ExtResource("1_keypad")
+
+[node name="KeypadPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="KeypadPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4)
+
+[node name="CenterContainer" type="CenterContainer" parent="KeypadPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="KeypadPanel/CenterContainer"]
+custom_minimum_size = Vector2(300, 380)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KeypadPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -170.0
+offset_right = 125.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="HBoxContainer" parent="KeypadPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="KeypadPanel/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "SECURITY KEYPAD"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="KeypadPanel/VBoxContainer/Header"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "X"
+
+[node name="DisplayPanel" type="PanelContainer" parent="KeypadPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_disp")
+
+[node name="DisplayLabel" type="Label" parent="KeypadPanel/VBoxContainer/DisplayPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 1, 0.4, 1)
+theme_override_font_sizes/font_size = 26
+text = "_ _ _ _"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="KeypadPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 3
+
+[node name="Btn1" type="Button" parent="KeypadPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="Btn2" type="Button" parent="KeypadPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "2"
+
+[node name="Btn3" type="Button" parent="KeypadPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "3"
+
+[node name="Btn4" type="Button" parent="KeypadPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "4"
+
+[node name="Btn5" type="Button" parent="KeypadPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "5"
+
+[node name="Btn6" type="Button" parent="KeypadPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "6"
+
+[node name="Btn7" type="Button" parent="KeypadPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "7"
+
+[node name="Btn8" type="Button" parent="KeypadPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "8"
+
+[node name="Btn9" type="Button" parent="KeypadPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "9"
+
+[node name="BtnClear" type="Button" parent="KeypadPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "CLR"
+
+[node name="Btn0" type="Button" parent="KeypadPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="BtnEnter" type="Button" parent="KeypadPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "OK"

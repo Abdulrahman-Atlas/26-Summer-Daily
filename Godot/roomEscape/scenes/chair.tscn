@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c1h2a3i4r5s6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_chair"]
+size = Vector3(0.8, 0.84843755, 0.09026489)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wood"]
+albedo_color = Color(0.38, 0.24, 0.14, 1)
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_seat"]
+material = SubResource("StandardMaterial3D_wood")
+size = Vector3(0.8, 0.08, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_leg"]
+material = SubResource("StandardMaterial3D_wood")
+size = Vector3(0.08, 0.8, 0.08)
+
+[sub_resource type="BoxMesh" id="BoxMesh_post"]
+material = SubResource("StandardMaterial3D_wood")
+size = Vector3(0.08, 0.9, 0.08)
+
+[sub_resource type="BoxMesh" id="BoxMesh_backrest"]
+material = SubResource("StandardMaterial3D_wood")
+size = Vector3(0.76, 0.35, 0.06)
+
+[node name="Chair" type="StaticBody3D" unique_id=1658710830]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2068469335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42, 0)
+shape = SubResource("BoxShape3D_chair")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1370011903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.274759, -0.34798896)
+shape = SubResource("BoxShape3D_chair")
+
+[node name="Seat" type="MeshInstance3D" parent="." unique_id=2104448720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("BoxMesh_seat")
+
+[node name="Leg1" type="MeshInstance3D" parent="." unique_id=398083029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34, 0.4, -0.34)
+mesh = SubResource("BoxMesh_leg")
+
+[node name="Leg2" type="MeshInstance3D" parent="." unique_id=600284971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34, 0.4, -0.34)
+mesh = SubResource("BoxMesh_leg")
+
+[node name="Leg3" type="MeshInstance3D" parent="." unique_id=214182962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34, 0.4, 0.34)
+mesh = SubResource("BoxMesh_leg")
+
+[node name="Leg4" type="MeshInstance3D" parent="." unique_id=1908862788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34, 0.4, 0.34)
+mesh = SubResource("BoxMesh_leg")
+
+[node name="Post1" type="MeshInstance3D" parent="." unique_id=774560179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34, 1.25, -0.34)
+mesh = SubResource("BoxMesh_post")
+
+[node name="Post2" type="MeshInstance3D" parent="." unique_id=39039587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34, 1.25, -0.34)
+mesh = SubResource("BoxMesh_post")
+
+[node name="Backrest" type="MeshInstance3D" parent="." unique_id=1374651886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.34)
+mesh = SubResource("BoxMesh_backrest")

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ccewegsgi76wt"]
+
+[ext_resource type="Texture2D" path="res://textures/wall_wainscot.jpg" id="1_wall_tex"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvhfp"]
+albedo_texture = ExtResource("1_wall_tex")
+uv1_scale = Vector3(3, 1, 1)
+roughness = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_akiqj"]
+material = SubResource("StandardMaterial3D_uvhfp")
+size = Vector3(15, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_akiqj"]
+size = Vector3(15, 5, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1993429066]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=838418739]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("BoxMesh_akiqj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2062703814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_akiqj")

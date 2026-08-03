@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://n1o2t3e4s5p6"]
+
+[ext_resource type="Script" uid="uid://delouhs17s0p4" path="res://scripts/note.gd" id="1_note"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_paper"]
+friction = 0.8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_paper"]
+size = Vector3(0.3, 0.06, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paper"]
+albedo_color = Color(0.95, 0.92, 0.84, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="BoxMesh_paper"]
+material = SubResource("StandardMaterial3D_paper")
+size = Vector3(0.28, 0.005, 0.38)
+
+[node name="SecretNote" type="RigidBody3D" unique_id=260461282 groups=["interactable", "note"]]
+mass = 0.2
+physics_material_override = SubResource("PhysicsMaterial_paper")
+continuous_cd = true
+script = ExtResource("1_note")
+note_text = "SECRET CODE: 9183"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=713822749]
+shape = SubResource("BoxShape3D_paper")
+
+[node name="PaperMesh" type="MeshInstance3D" parent="." unique_id=2108211470]
+mesh = SubResource("BoxMesh_paper")
+
+[node name="NoteLabel" type="Label3D" parent="." unique_id=345470391]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.004, 0)
+pixel_size = 0.002
+modulate = Color(0.12, 0.15, 0.35, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "SECRET CODE: 9183"
+font_size = 8
+outline_size = 3

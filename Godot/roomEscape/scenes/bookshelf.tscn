@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://b1o2o3k4s5h6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bookshelf"]
+size = Vector3(1.6, 2.8, 0.062695324)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_alfje"]
+size = Vector3(1.6007812, 0.06820375, 0.5380127)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shelf"]
+albedo_color = Color(0.3, 0.18, 0.1, 1)
+roughness = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_side"]
+material = SubResource("StandardMaterial3D_shelf")
+size = Vector3(0.08, 2.8, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_back"]
+material = SubResource("StandardMaterial3D_shelf")
+size = Vector3(1.6, 2.8, 0.04)
+
+[sub_resource type="BoxMesh" id="BoxMesh_board"]
+material = SubResource("StandardMaterial3D_shelf")
+size = Vector3(1.6, 0.06, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_book1"]
+albedo_color = Color(0.8, 0.2, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_book"]
+size = Vector3(0.12, 0.4, 0.35)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_book2"]
+albedo_color = Color(0.2, 0.4, 0.8, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_book3"]
+albedo_color = Color(0.2, 0.7, 0.3, 1)
+
+[node name="Bookshelf" type="StaticBody3D" unique_id=1932141295]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=546959409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -0.26865235)
+shape = SubResource("BoxShape3D_bookshelf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=2076709709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00039058924, 1.8504754, 0.03375633)
+shape = SubResource("BoxShape3D_alfje")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1010693876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00039058924, 0.95082784, 0.03375633)
+shape = SubResource("BoxShape3D_alfje")
+
+[node name="SideLeft" type="MeshInstance3D" parent="." unique_id=1494632985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76, 1.4, 0)
+mesh = SubResource("BoxMesh_side")
+
+[node name="SideRight" type="MeshInstance3D" parent="." unique_id=1789368018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76, 1.4, 0)
+mesh = SubResource("BoxMesh_side")
+
+[node name="Back" type="MeshInstance3D" parent="." unique_id=1767055387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -0.28)
+mesh = SubResource("BoxMesh_back")
+
+[node name="ShelfBottom" type="MeshInstance3D" parent="." unique_id=1339737956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+mesh = SubResource("BoxMesh_board")
+
+[node name="Shelf1" type="MeshInstance3D" parent="." unique_id=1743885627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+mesh = SubResource("BoxMesh_board")
+
+[node name="Shelf2" type="MeshInstance3D" parent="." unique_id=990084042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0)
+mesh = SubResource("BoxMesh_board")
+
+[node name="ShelfTop" type="MeshInstance3D" parent="." unique_id=1632249848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.77, 0)
+mesh = SubResource("BoxMesh_board")
+
+[node name="Book1" type="MeshInstance3D" parent="." unique_id=1497942208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.18, 0.05)
+material_override = SubResource("StandardMaterial3D_book1")
+mesh = SubResource("BoxMesh_book")
+
+[node name="Book2" type="MeshInstance3D" parent="." unique_id=1379784565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36, 1.18, 0.05)
+material_override = SubResource("StandardMaterial3D_book2")
+mesh = SubResource("BoxMesh_book")
+
+[node name="Book3" type="MeshInstance3D" parent="." unique_id=413605354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22, 1.18, 0.05)
+material_override = SubResource("StandardMaterial3D_book3")
+mesh = SubResource("BoxMesh_book")

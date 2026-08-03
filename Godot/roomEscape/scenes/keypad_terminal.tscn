@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://k1p2t3m4n5o6"]
+
+[ext_resource type="Script" path="res://scripts/keypad_terminal.gd" id="1_term"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_body"]
+albedo_color = Color(0.15, 0.18, 0.22, 1)
+metallic = 0.5
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_body"]
+material = SubResource("StandardMaterial3D_body")
+size = Vector3(0.8, 1.0, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_body"]
+size = Vector3(1.0, 1.2, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_screen"]
+albedo_color = Color(0.02, 0.05, 0.03, 1)
+roughness = 0.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_screen"]
+material = SubResource("StandardMaterial3D_screen")
+size = Vector3(0.6, 0.4, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_light"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0.2, 0.2, 1)
+emission_enabled = true
+emission = Color(1, 0.2, 0.2, 1)
+emission_energy_multiplier = 2.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_light"]
+radius = 0.05
+height = 0.1
+
+[node name="KeypadTerminal" type="StaticBody3D" groups=["interactable", "keypad_terminal"]]
+script = ExtResource("1_term")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_body")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_body")
+
+[node name="ScreenMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0.16)
+mesh = SubResource("BoxMesh_screen")
+
+[node name="ScreenLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0.175)
+pixel_size = 0.003
+text = "LOCKED"
+font_size = 36
+modulate = Color(1, 0.3, 0.3, 1)
+
+[node name="StatusLight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.38, 0.16)
+material_override = SubResource("StandardMaterial3D_light")
+mesh = SubResource("SphereMesh_light")

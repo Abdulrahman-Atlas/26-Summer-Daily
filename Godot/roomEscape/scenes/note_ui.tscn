@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://n7o8uae0u1i2"]
+
+[ext_resource type="Script" path="res://scripts/note_ui.gd" id="1_noteui"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_paper"]
+bg_color = Color(0.95, 0.92, 0.84, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7, 0.62, 0.48, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 16
+
+[node name="NoteUI" type="CanvasLayer" groups=["note_ui"]]
+process_mode = 3
+script = ExtResource("1_noteui")
+
+[node name="NotePanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="NotePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="CenterContainer" type="CenterContainer" parent="NotePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PaperContainer" type="PanelContainer" parent="NotePanel/CenterContainer"]
+custom_minimum_size = Vector2(480, 560)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_paper")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NotePanel/CenterContainer/PaperContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TitleLabel" type="Label" parent="NotePanel/CenterContainer/PaperContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.3, 0.18, 1)
+theme_override_font_sizes/font_size = 22
+text = "--- NOTE ---"
+horizontal_alignment = 1
+
+[node name="NoteTextLabel" type="Label" parent="NotePanel/CenterContainer/PaperContainer/VBoxContainer"]
+custom_minimum_size = Vector2(420, 420)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.15, 0.3, 1)
+theme_override_font_sizes/font_size = 24
+text = "Note text goes here..."
+autowrap_mode = 3
+
+[node name="PromptLabel" type="Label" parent="NotePanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -60.0
+offset_right = 250.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.8)
+theme_override_font_sizes/font_size = 18
+text = "(Click anywhere or press E / ESC to close)"
+horizontal_alignment = 1
+vertical_alignment = 1

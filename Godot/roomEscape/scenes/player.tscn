@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dyiosxd2ce3fe"]
+
+[ext_resource type="Script" uid="uid://do0nfvmq0bw8y" path="res://scripts/player.gd" id="1_player"]
+[ext_resource type="Script" uid="uid://se7kr5156y5o" path="res://scripts/interact_ray.gd" id="2_ray"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_akiqj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lk7nm"]
+
+[node name="player" type="CharacterBody3D" unique_id=1551760537 groups=["player"]]
+script = ExtResource("1_player")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1355996248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_akiqj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1619706128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_lk7nm")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=640465029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="InteractRay" type="RayCast3D" parent="Camera3D" unique_id=1106002245]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+target_position = Vector3(0, 0, -1.5)
+script = ExtResource("2_ray")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=491265459]
+
+[node name="Crosshair" type="Label" parent="HUD" unique_id=209366543]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -12.0
+offset_right = 10.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.7)
+theme_override_font_sizes/font_size = 20
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractLabel" type="Label" parent="HUD" unique_id=771852375]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.95, 0.5, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://c7x8y9m0n1p23"]
+
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_door"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frame"]
+albedo_color = Color(0.25, 0.2, 0.15, 1)
+roughness = 0.6
+
+[sub_resource type="BoxMesh" id="BoxMesh_frame_top"]
+material = SubResource("StandardMaterial3D_frame")
+size = Vector3(2.4, 0.2, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_frame_side"]
+material = SubResource("StandardMaterial3D_frame")
+size = Vector3(0.2, 3.6, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_door"]
+albedo_color = Color(0.55, 0.35, 0.2, 1)
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_door"]
+material = SubResource("StandardMaterial3D_door")
+size = Vector3(2.0, 3.5, 0.12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_door"]
+size = Vector3(2.0, 3.5, 0.12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_handle"]
+albedo_color = Color(0.8, 0.75, 0.3, 1)
+metallic = 0.8
+roughness = 0.2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_handle"]
+material = SubResource("StandardMaterial3D_handle")
+top_radius = 0.04
+bottom_radius = 0.04
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_keypad"]
+albedo_color = Color(0.15, 0.18, 0.22, 1)
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_keypad"]
+material = SubResource("StandardMaterial3D_keypad")
+size = Vector3(0.35, 0.5, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_light"]
+albedo_color = Color(0.9, 0.2, 0.2, 1)
+emission_enabled = true
+emission = Color(0.9, 0.2, 0.2, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_light"]
+material = SubResource("StandardMaterial3D_light")
+radius = 0.04
+height = 0.08
+
+[node name="Door" type="StaticBody3D" groups=["interactable"]]
+script = ExtResource("1_door")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0, 1.75, 0)
+shape = SubResource("BoxShape3D_door")
+
+[node name="FrameTop" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0, 3.6, 0)
+mesh = SubResource("BoxMesh_frame_top")
+
+[node name="FrameLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 1.8, 0)
+mesh = SubResource("BoxMesh_frame_side")
+
+[node name="FrameRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 1.8, 0)
+mesh = SubResource("BoxMesh_frame_side")
+
+[node name="KeypadBox" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1.6, 0.1)
+mesh = SubResource("BoxMesh_keypad")
+
+[node name="StatusLight" type="MeshInstance3D" parent="KeypadBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0.06)
+mesh = SubResource("SphereMesh_light")
+
+[node name="DoorPivot" type="Node3D" parent="."]
+
+[node name="DoorMesh" type="MeshInstance3D" parent="DoorPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0, 1.75, 0)
+mesh = SubResource("BoxMesh_door")
+
+[node name="DoorHandle" type="MeshInstance3D" parent="DoorPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.8, 1.6, 0.08)
+mesh = SubResource("CylinderMesh_handle")
