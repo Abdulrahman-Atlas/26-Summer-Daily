@@ -1,0 +1,19 @@
+Date: 20/07/2026
+
+Day Number: Day 20 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Before transitioning, applied the right collision shapes to each of the 3d model assets provided in the tutorial.
+
+    - Transitioned the project from blockouts to actual textured 3D objects.
+
+    - Learned the intricacies of StandardMaterial3D, managing UV maps, and integrating custom seamless textures onto walls and floors.
+
+    - Experimented extensively with normal maps, albedo, and roughness channels to ensure surfaces reacted realistically to dynamic light sources.
+
+Next to-do:
+
+    - Implement advanced physics collisions for props inside the building.
