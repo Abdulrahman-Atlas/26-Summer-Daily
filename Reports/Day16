@@ -1,0 +1,17 @@
+Date: 13/07/2026
+
+Day Number: Day 16 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Initiated the 3D Infinite Runner project, my first deep dive into Godot's 3D engine world.
+
+    - Configured the default environment, set up the main Camera3D with a dynamic follow script, and established the lighting.
+
+    - Modeled the basic player cube and implement the `player.gd` script to handle physics-based movement mechanics using RigidBody3D forces.
+
+Next to-do:
+
+    - Implement the infinitely looping floor and coordinate shifting.
