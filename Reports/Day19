@@ -1,0 +1,19 @@
+Date: 17/07/2026
+
+Day Number: Day 19 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Began the comprehensive '3D Overview' project to learn realistic environment design.
+
+    - Focused heavily on prototyping structural builds using Godot's CSG (Constructive Solid Geometry) nodes.
+
+    - Used custom prespectives to easily build everything on a grid with the snapping feature on.
+
+    - Drafted out the foundational architecture and flow of a multi-room building before replacing the meshes for final geometry.
+
+Next to-do:
+
+    - Apply textures and materials to the greybox building.
