@@ -1,0 +1,17 @@
+Date: 24/07/2026
+
+Day Number: Day 24 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Implemented a sophisticated camera rig using a SpringArm3D node to handle wall collisions gracefully.
+
+    - Programmed mouse-look functionality, strictly clamping pitch angles to prevent camera flipping.
+
+    - Utilized quaternions and linear interpolation (lerp method) to ensure the character model smoothly rotates to face its movement vector.
+
+Next to-do:
+
+    - Refactor the messy movement code into a Finite State Machine.

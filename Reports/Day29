@@ -1,0 +1,19 @@
+Date: 31/07/2026
+
+Day Number: Day 29 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Designed and implemented a complex interactive Code Terminal using Godot's Control UI nodes mapped to a 3D surface via Viewports.
+
+    - Created intricate puzzle logic where players must search the environment for environmental clues to deduce a randomized 4-digit code.
+
+    - Utilized player movement and unique game mechanics to find the hidden code in this level.
+
+    - Successfully completed the layout and logic scripting for Level 2.
+
+Next to-do:
+
+    - Finalize Level 3 puzzles and wrap up the entire game loop.

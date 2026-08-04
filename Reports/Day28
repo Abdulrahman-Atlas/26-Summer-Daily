@@ -1,0 +1,17 @@
+Date: 30/07/2026
+
+Day Number: Day 28 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Developed the core first-person interaction system using center-screen RayCasts and custom input mapping.
+
+    - Programmed interactable objects using GDScript, including readable notes, a functional sliding drawer, and an animated escape portal.
+
+    - Integrated localized AudioStreamPlayer3D nodes to make interactions (like drawer sliding and paper rustling) feel punchy and responsive.
+
+Next to-do:
+
+    - Implement the code terminal UI and Level 2 puzzle logic.

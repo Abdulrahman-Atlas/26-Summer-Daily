@@ -1,0 +1,19 @@
+Date: 28/07/2026
+
+Day Number: Day 26 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Implemented an advanced Audio Controller system node linked to the character's movement state.
+
+    - Attached the audio controller to the players running animation to match the steps made precisely.
+
+    - Utilized RayCast3D nodes pointing downwards from the player's feet to detect the specific collision layer of the floor.
+
+    - Dynamically swapped footstep audio streams based on the detected surface material (dirt, sand, snow, stone) for maximum immersion.
+
+Next to-do:
+
+    - Begin the final project: a 3D Room Escape game.

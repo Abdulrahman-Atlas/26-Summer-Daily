@@ -1,0 +1,17 @@
+Date: 27/07/2026
+
+Day Number: Day 25 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Realized the initial iterative code structure was becoming unmaintainable, therefore I had to refactor it.
+
+    - Designed and implemented a robust Finite State Machine (FSM) from scratch using GDScript classes.
+
+    - Cleanly separated the Idle, Walk, Run, Fall and Jump logic into isolated state nodes, drastically improving code readability and debugging.
+
+Next to-do:
+
+    - Build a dynamic audio controller for footstep  and background sounds.
