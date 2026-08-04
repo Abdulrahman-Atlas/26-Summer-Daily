@@ -1,0 +1,19 @@
+Date: 21/07/2026
+
+Day Number: Day 21 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Dove deep into Godot's physics engine for environmental interaction.
+
+    - Generated complex convex and trimesh collision shapes to accurately wrap unusual structural objects like a non uniform barrel.
+
+    - Mastered RigidBody3D nodes and mass properties to create interactable, physics-driven props distributed throughout the environment.
+
+    - Animated a door opening-closing and a chest lid for interactibility
+
+Next to-do:
+
+    - Polish the environment with a custom skybox and advanced lighting.
