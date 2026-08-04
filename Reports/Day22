@@ -1,0 +1,17 @@
+Date: 22/07/2026
+
+Day Number: Day 22 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Polished the environmental atmosphere by configuring a custom procedural skybox and tweaking ambient global illumination.
+
+    - Meticulously placed OmniLights and SpotLights to my custom 3d torches to highlight architectural details.
+
+    - Studied light baking techniques and real-time shadow rendering to achieve a highly realistic architectural visualization.
+
+Next to-do:
+
+    - Start the 3rd Person Character Controller tutorial project.
