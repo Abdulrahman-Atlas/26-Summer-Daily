@@ -1,0 +1,15 @@
+Date: 03/08/2026
+
+Day Number: Day 30 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Added ducking to the game to explore tight areas under objects and interact with hidden secret notes.
+
+    - Designed and finalized Level 3, introducing the most complex puzzles involving hidden notes.
+
+    - Polished the overall game loop by adding win condition screen and tying all 3 levels together via portal transitions.
+
+    - Conducted final bug testing and fixes, officially finishing up the summer internship with a fully playable 3D game!
