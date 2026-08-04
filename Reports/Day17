@@ -1,0 +1,17 @@
+Date: 14/07/2026
+
+Day Number: Day 17 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Developed the infinite scrolling floor mechanism using custom logic in `floor.gd`.
+
+    - Managed 3D coordinate systems and transforms to seamlessly loop platform segments, giving the illusion of endless forward momentum by rolling the 3d floor texture.
+
+    - Optimized the floor recycling to prevent floating-point precision loss over long play sessions and to exactly match obstacles speed.
+
+Next to-do:
+
+    - Add procedural obstacle generation to make the game challenging.
