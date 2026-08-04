@@ -1,0 +1,19 @@
+Date: 16/07/2026
+
+Day Number: Day 18 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Added an intricate obstacle generation system utilizing `obstacleSpawner.gd` and `obstacle.gd`.
+
+    - Applied procedural randomization logic to spawn dynamic, unpredictable obtacle shapes along the Z-axis.
+
+    - Added the disappearing obstacle logic when an obstacle leaves the scene to prevent memory leaks.
+
+    - Connected custom signals to a centralized `game_manager.gd` node to track the player's score and trigger fail states on collision with obstacles.
+
+Next to-do:
+
+    - Move on to learning advanced blocking techniques in a new project.
