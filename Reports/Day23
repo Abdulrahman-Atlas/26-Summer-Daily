@@ -1,0 +1,17 @@
+Date: 23/07/2026
+
+Day Number: Day 23 of 30
+
+Department: Software/ game Development
+
+WORK DONE:
+
+    - Initiated the 3rd Person Character Controller project by importing a complex rigged 3D character model.
+
+    - Configured the AnimationTree and AnimationPlayer nodes to blend between idle, walk, and run cycles.
+
+    - Scripted a basic iterative controller to translate input vectors into 3D movement relative to the camera's orientation.
+
+Next to-do:
+
+    - Implement a robust camera rig and smooth rotation logic.
