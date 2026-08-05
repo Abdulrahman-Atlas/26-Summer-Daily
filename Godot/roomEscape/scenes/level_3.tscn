@@ -137,6 +137,7 @@ note_text = "Solve the riddle"
 
 [node name="player" parent="." unique_id=1841879223 instance=ExtResource("1_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+visible = false
 
 [node name="PauseMenu" parent="." unique_id=566132144 instance=ExtResource("9_pmenu")]
 

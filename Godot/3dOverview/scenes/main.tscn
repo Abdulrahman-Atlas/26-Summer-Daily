@@ -92,7 +92,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8999999, 0.5, 16)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1000004, 0.5, 16)
 
 [node name="wall_doorway3" parent="Building" unique_id=927373366 instance=ExtResource("7_jkv2x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.5, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.5, 16)
 
 [node name="wall_corner7" parent="Building" unique_id=2098945958 instance=ExtResource("2_choun")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -8.1, 4.5, 16)
